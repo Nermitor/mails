@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - '3100:3100'
+    depends_on:
+      - db
+    volumes:
+      - .:/var/www/app
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+
+#  db:
+#    container_name: db
+#    image: postgres:alpine
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      - POSTGRES_DB=mails-db
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=password
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data
+
+
+#volumes:
+#  postgres_data:
