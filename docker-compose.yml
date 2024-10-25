@@ -15,18 +15,11 @@ services:
     stdin_open: true
     tty: true
 
-#  db:
-#    container_name: db
-#    image: postgres:alpine
-#    ports:
-#      - "5432:5432"
-#    environment:
-#      - POSTGRES_DB=mails-db
-#      - POSTGRES_USER=postgres
-#      - POSTGRES_PASSWORD=password
-#    volumes:
-#      - postgres_data:/var/lib/postgresql/data
-
-
-#volumes:
-#  postgres_data:
+  db:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "mydb"
